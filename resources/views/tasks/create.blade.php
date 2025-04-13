@@ -94,15 +94,15 @@
             @csrf
             <div class="form-group">
                 <label for="title">Title</label>
-                <input type="text" name="title" id="title" placeholder="Type title..." required>
+                <input type="text" name="task_name" id="task_name" placeholder="Type title..." required>
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea name="description" id="description" rows="4" placeholder="Task details..."></textarea>
+                <textarea name="task_description" id="task_description" rows="4" placeholder="Task details..."></textarea>
             </div>
             <div class="form-group">
                 <label for="due_date">Due Date</label>
-                <input type="date" name="due_date" id="due_date">
+                <input type="date" name="task_due_date" id="task_due_date">
             </div>
             <button type="submit">Save</button>
         </form>

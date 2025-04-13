@@ -87,19 +87,35 @@
 
     <div class="container">
         <div class="cta">
-            <a href="{{ route('tasks.create') }}">PLUS</a>
+            <a href="{{ route('tasks.create') }}">➕</a>
             <h2>Task list</h2>
             <table>
                 <tr>
                     <th>Task</th>
                     <th>Status</th>
                     <th>Date</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 @foreach($tasks as $task)
                     <tr>
                         <td>{{ $task->task_name }}</td>
                         <td>{{ $task->task_status }}</td>
                         <td>{{ \Carbon\Carbon::parse($task->task_due_date)->format('d/m/Y') }}</td>
+                        <td>
+                            <a href="{{ route('tasks.show', $task->id_task) }}" style="text-decoration: none; color: green;">👁️</a`>
+                        <td>
+                            <a href="{{ route('tasks.edit', $task->id_task) }}" style="text-decoration: none; color: blue;">✏️</a>
+                        </td>
+                        <td>
+                            <form action="{{ route('tasks.destroy', $task->id_task) }}" method="POST">
+                                @csrf
+                                @method('GET')
+                                <button type="submit" style="background: none; border: none; color: red; cursor: pointer;">❌</button>
+                            </form>
+                        </td>
+
                     </tr>
                 @endforeach
             </table>
